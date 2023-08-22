@@ -1,23 +1,21 @@
-import logo from './logo.svg';
+import React from "react"
 import './App.css';
+import {RouterProvider, Route, createBrowserRouter, createRoutesFromElements } from "react-router-dom"
+import Header from "./components/Header.js";
+import Pokedex, { loader as pokedexLoader} from "./components/Pokedex.js";
+import MonInfo, { loader as pokemonLoader} from "./components/MonInfo";
+
+const router = createBrowserRouter(createRoutesFromElements(
+<Route path="/" element={<Header />} >
+  <Route index element={<Pokedex />} loader={pokedexLoader}/>
+  <Route path="/:id" element={<MonInfo />} loader={pokemonLoader}/>
+</Route>
+));
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <RouterProvider router={router}/>
     </div>
   );
 }
