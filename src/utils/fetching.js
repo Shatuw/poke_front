@@ -6,8 +6,8 @@ export async function getPokedex(){
     return getPokedex.json();
 }
 
-export async function getPokemon(params){
-    const pokemon = await fetch(`https://shatuw-pokedex.onrender.com/pokemon/${params.id}`)
+export async function getPokemon(id){
+    const pokemon = await fetch(`https://shatuw-pokedex.onrender.com/pokemon/${id}`)
     if (!pokemon.ok){
         throw {message : "Failed to fetch pokemon", status : 500}
     }
