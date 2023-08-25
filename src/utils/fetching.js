@@ -13,3 +13,11 @@ export async function getPokemon(id){
     }
     return pokemon.json();
 }
+
+export async function getPokePic(id) {
+    let pokePic = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`);
+    if (!pokePic.ok) {
+        throw { message: "Failed to fetch poke picture", status: 500 };
+    }
+    return pokePic.json();
+  }

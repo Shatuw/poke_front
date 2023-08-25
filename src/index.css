@@ -5,7 +5,21 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
+ }
+
+ a{
+  text-decoration: none;
+  color: black;
+  background-color: azure;
+ }
+ a:hover{
+  transform: 1.2;
+  cursor: pointer;
+ }
+
+ li{
+  list-style: none;
+ }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
